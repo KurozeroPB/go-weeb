@@ -12,7 +12,7 @@ import (
 var (
 	// USERAGENT Set UA
 	USERAGENT = "go-weeb - (https://github.com/KurozeroPB/go-weeb)"
-	baseURL   = "https://rra.ram.moe/"
+	baseURL   = "https://rra.ram.moe"
 	typePath  = "/i/r?type="
 	// typeList  []string
 )
