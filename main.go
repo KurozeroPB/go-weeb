@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"strings"
 
 	"github.com/Jeffail/gabs"
 )
@@ -15,7 +14,7 @@ var (
 	USERAGENT = "go-weeb - (https://github.com/KurozeroPB/go-weeb)"
 	baseURL   = "rra.ram.moe"
 	typePath  = "/i/r?type="
-	typeList  []string
+	// typeList  []string
 )
 
 // executeRequest Executes a http request
@@ -84,34 +83,36 @@ func TypeInList(a string, list []string) bool {
 
 // GetImage gets image
 func GetImage(Type string) (string, error) {
-	typeList[0] = "cry"
-	typeList[1] = "cuddle"
-	typeList[2] = "hug"
-	typeList[3] = "kiss"
-	typeList[4] = "lewd"
-	typeList[5] = "lick"
-	typeList[6] = "nom"
-	typeList[7] = "nyan"
-	typeList[8] = "owo"
-	typeList[9] = "pat"
-	typeList[10] = "pout"
-	typeList[11] = "rem"
-	typeList[12] = "slap"
-	typeList[13] = "smug"
-	typeList[14] = "stare"
-	typeList[15] = "tickle"
-	typeList[16] = "triggered"
-	typeList[17] = "nsfw-gtn"
-	typeList[18] = "potato"
-	typeList[19] = "kermit"
+	/*
+		typeList[0] = "cry"
+		typeList[1] = "cuddle"
+		typeList[2] = "hug"
+		typeList[3] = "kiss"
+		typeList[4] = "lewd"
+		typeList[5] = "lick"
+		typeList[6] = "nom"
+		typeList[7] = "nyan"
+		typeList[8] = "owo"
+		typeList[9] = "pat"
+		typeList[10] = "pout"
+		typeList[11] = "rem"
+		typeList[12] = "slap"
+		typeList[13] = "smug"
+		typeList[14] = "stare"
+		typeList[15] = "tickle"
+		typeList[16] = "triggered"
+		typeList[17] = "nsfw-gtn"
+		typeList[18] = "potato"
+		typeList[19] = "kermit"
 
-	newType := strings.ToLower(Type)
-	TypeBool := TypeInList(newType, typeList)
-	if TypeBool == false {
-		err := fmt.Errorf("type does not exist")
-		return "", err
-	}
-	json, e := gabs.ParseJSON(GET(baseURL + typePath + newType))
+		newType := strings.ToLower(Type)
+		TypeBool := TypeInList(newType, typeList)
+		if TypeBool == false {
+			err := fmt.Errorf("type does not exist")
+			return "", err
+		}
+	*/
+	json, e := gabs.ParseJSON(GET(baseURL + typePath + Type))
 	img := baseURL + json.Path("path").Data().(string)
 	return img, e
 }
