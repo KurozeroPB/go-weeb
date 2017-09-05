@@ -1,6 +1,5 @@
 # go-weeb
-
-## go-weeb is here to make it simple getting images from rra.ram.moe
+__go-weeb is here to make it simple getting images from rra.ram.moe__
 
 ### Install
 `go get github.com/KurozeroPB/go-weeb`
