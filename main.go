@@ -3,7 +3,6 @@ package weeb
 import (
 	"bytes"
 	"fmt"
-	"go-weeb/version"
 	"io"
 	"net/http"
 	"strings"
@@ -13,7 +12,7 @@ import (
 
 var (
 	// USERAGENT Set UA
-	USERAGENT = "go-weeb/" + version.BOT_VERSION + " (https://github.com/KurozeroPB/go-weeb)"
+	USERAGENT = "go-weeb - (https://github.com/KurozeroPB/go-weeb)"
 	baseURL   = "rra.ram.moe"
 	typePath  = "/i/r?type="
 	typeList  []string
