@@ -25,3 +25,24 @@ func main() {
   fmt.Println(img)
 }
 ```
+Here's a list of types you can use to get images from:
+- cry
+- cuddle
+- hug
+- kiss
+- lewd
+- lick
+- nom
+- nyan
+- owo
+- pat
+- pout
+- rem
+- slap
+- smug
+- stare
+- tickle
+- triggered
+- nsfw-gtn
+- potato
+- kermit
