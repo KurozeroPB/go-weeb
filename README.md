@@ -11,17 +11,17 @@ Quick example:
 package main
 
 import (
-	"fmt"
+  "fmt"
 
-	"github.com/KurozeroPB/go-weeb"
+  "github.com/KurozeroPB/go-weeb"
 )
 
 func main() {
-	img, err := weeb.GetImage("pat")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println(img)
+  img, err := weeb.GetImage("pat")
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(img)
 }
 ```
