@@ -18,10 +18,10 @@ import (
 func main() {
   img, err := weeb.GetImage("pat")
   if err != nil {
-    fmt.Println(err)
+    fmt.Printf("Error: %s", err)
     return
   }
-  fmt.Println(img)
+  fmt.Printf("Image: %s", img)
 }
 ```
 Here's a list of types you can use to get images from:
