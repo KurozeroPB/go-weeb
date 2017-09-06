@@ -72,7 +72,7 @@ func GetImage(Type string) (string, error) {
 
 	TypeBool := strings.Contains(typeList, newType)
 	if TypeBool == false {
-		err := fmt.Errorf("type does not exist")
+		err := fmt.Errorf("type %s is not a valid option", newType)
 		return "", err
 	}
 	json, e := gabs.ParseJSON(get(baseURL + typePath + newType))
