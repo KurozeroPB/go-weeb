@@ -11,8 +11,7 @@ import (
 )
 
 var (
-	// USERAGENT Set UA
-	USERAGENT = "go-weeb - (https://github.com/KurozeroPB/go-weeb)"
+	userAgent = "go-weeb - (https://github.com/KurozeroPB/go-weeb)"
 	baseURL   = "https://rra.ram.moe"
 	typePath  = "/i/r?type="
 	typeList  = "cry, cuddle, hug, kiss, lewd, lick, nom, nyan, owo, pat, pout, rem, slap, smug, stare, tickle, triggered, nsfw-gtn, potato, kermit"
@@ -42,7 +41,7 @@ func executeRequest(request *http.Request, expectedStatus int) []byte {
 }
 
 func newRequest(method string, url string) *http.Request {
-	return newUARequest(method, url, USERAGENT)
+	return newUARequest(method, url, userAgent)
 }
 
 func newUARequest(method string, url string, ua string) *http.Request {
