@@ -18,7 +18,6 @@ var (
 	typeList  = "cry, cuddle, hug, kiss, lewd, lick, nom, nyan, owo, pat, pout, rem, slap, smug, stare, tickle, triggered, nsfw-gtn, potato, kermit"
 )
 
-// executeRequest Executes a http request
 func executeRequest(request *http.Request, expectedStatus int) []byte {
 	client := http.Client{}
 	response, err := client.Do(request)
@@ -42,12 +41,10 @@ func executeRequest(request *http.Request, expectedStatus int) []byte {
 	return buf.Bytes()
 }
 
-// newRequest Creates a new request
 func newRequest(method string, url string) *http.Request {
 	return newUARequest(method, url, USERAGENT)
 }
 
-// newUARequest Adds a custom user agent
 func newUARequest(method string, url string, ua string) *http.Request {
 	request, err := http.NewRequest(method, url, nil)
 	if err != nil {
@@ -59,30 +56,18 @@ func newUARequest(method string, url string, ua string) *http.Request {
 	return request
 }
 
-// SafeGET Makes GET request
-func SafeGET(url string, expectedStatus int) []byte {
+func safeGET(url string, expectedStatus int) []byte {
 	return executeRequest(
 		newRequest("GET", url),
 		expectedStatus,
 	)
 }
 
-// GET calls the SafeGET func to make a GET request
-func GET(url string) []byte {
-	return SafeGET(url, 200)
+func get(url string) []byte {
+	return safeGET(url, 200)
 }
 
-// TypeInList check if type is in the list
-func TypeInList(a string, list []string) bool {
-	for _, b := range list {
-		if b == a {
-			return true
-		}
-	}
-	return false
-}
-
-// GetImage gets image
+// GetImage gets image from the given type
 func GetImage(Type string) (string, error) {
 	newType := strings.ToLower(Type)
 
@@ -91,7 +76,7 @@ func GetImage(Type string) (string, error) {
 		err := fmt.Errorf("type does not exist")
 		return "", err
 	}
-	json, e := gabs.ParseJSON(GET(baseURL + typePath + newType))
+	json, e := gabs.ParseJSON(get(baseURL + typePath + newType))
 	img := baseURL + json.Path("path").Data().(string)
 	return img, e
 }
