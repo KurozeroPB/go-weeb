@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/KurozeroPB/go-weeb)](https://goreportcard.com/report/github.com/KurozeroPB/go-weeb)
+
 # go-weeb
 __go-weeb is here to make it simple getting images from rra.ram.moe__
 
